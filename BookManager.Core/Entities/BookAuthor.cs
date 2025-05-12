@@ -2,14 +2,19 @@
 {
     public class BookAuthor : BaseEntity
     {
-        public BookAuthor(int bookId, int authorId) : base()
+        public BookAuthor() { }
+        public BookAuthor(Book book, Author author) : base()
         {
-            BookId = bookId;
-            AuthorId = authorId;
+            Book = book;
+            Author = author;
+
+            book.Authors.Add(this);
+            author.Books.Add(this);
         }
 
         public int BookId { get; set; }
         public Book Book { get; set; }
+
         public int AuthorId { get; set; }
         public Author Author { get; set; }
     }
