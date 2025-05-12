@@ -9,10 +9,10 @@ namespace BookManager.Core.Entities
             CreatedAt = DateTime.Now;
         }
 
-        public int Id { get; private set; }
-        public DateTime CreatedAt { get; private set; }
-        public DateTime? UpdatedAt { get; private set; }
-        public DateTime? DeletedAt { get; private set; }
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
 
         public void SetAsUpdated()
         {

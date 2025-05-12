@@ -6,7 +6,7 @@ namespace BookManager.Core.Entities
 {
     public class Book : BaseEntity
     {
-        public Book(string title, string iSBN, DateTime publicationDate, IEnumerable<Author> authors) : base()
+        public Book(string title, string iSBN, DateTime publicationDate, List<Author> authors) : base()
         {
             Title = title;
             ISBN = iSBN;
@@ -16,9 +16,9 @@ namespace BookManager.Core.Entities
                 .ToList();
         }
 
-        public string Title { get; private set; }
-        public string ISBN { get; private set; }
-        public DateTime PublicationDate { get; private set; }
+        public string Title { get; set; }
+        public string ISBN { get; set; }
+        public DateTime PublicationDate { get; set; }
         public List<BookAuthor> Authors { get; set; } = [];
     }
 }
