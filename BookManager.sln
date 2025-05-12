@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.Core", "BookMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager.Cmd", "BookManager.Cmd\BookManager.Cmd.csproj", "{9A845E66-F3D2-4076-9038-646775B9EF06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager.Infra", "BookManager.Infra\BookManager.Infra.csproj", "{A5ED5DCF-608A-48E0-9CDC-0B8019B86EBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager.App", "BookManager.App\BookManager.App.csproj", "{57D985E8-8C32-47DA-ACE1-43F746896D68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{9A845E66-F3D2-4076-9038-646775B9EF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A845E66-F3D2-4076-9038-646775B9EF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A845E66-F3D2-4076-9038-646775B9EF06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5ED5DCF-608A-48E0-9CDC-0B8019B86EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5ED5DCF-608A-48E0-9CDC-0B8019B86EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5ED5DCF-608A-48E0-9CDC-0B8019B86EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5ED5DCF-608A-48E0-9CDC-0B8019B86EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57D985E8-8C32-47DA-ACE1-43F746896D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D985E8-8C32-47DA-ACE1-43F746896D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D985E8-8C32-47DA-ACE1-43F746896D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D985E8-8C32-47DA-ACE1-43F746896D68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
