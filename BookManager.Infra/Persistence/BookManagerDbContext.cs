@@ -13,12 +13,14 @@ namespace BookManager.Infra.Persistence
         public DbSet<Book> Books { get; set; }
         public DbSet<BookAuthor> BookAuthors { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<Loan> Loans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new BookMap());
             builder.ApplyConfiguration(new BookAuthorMap());
             builder.ApplyConfiguration(new AuthorMap());
+            builder.ApplyConfiguration(new LoanMap());
 
             base.OnModelCreating(builder);
         }

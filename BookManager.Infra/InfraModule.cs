@@ -29,6 +29,7 @@ namespace BookManager.Infra
         {
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ILoanRepository, LoanRepository>();
 
             return services;
         }
