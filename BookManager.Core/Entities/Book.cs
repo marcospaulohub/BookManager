@@ -29,5 +29,6 @@ namespace BookManager.Core.Entities
         public string? ISBN { get; set; }
         public DateTime? PublicationDate { get; set; }
         public List<BookAuthor> Authors { get; set; } = [];
+        public List<Loan> Loans { get; set; } = [];
     }
 }

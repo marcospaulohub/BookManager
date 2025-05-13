@@ -4,11 +4,11 @@ namespace BookManager.Core.Entities
 {
     public class Loan : BaseEntity
     {
-        public Loan(int userId, int bookId, DateTime loanDate)
+        public Loan(int userId, int bookId)
         {
             UserId = userId;
             BookId = bookId;
-            LoanDate = loanDate;
+            LoanDate = DateTime.Today;
             ReturnDate = GetValidDateForReturn();
         }
 

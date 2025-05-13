@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BookManager.Core.Entities
 {
@@ -12,5 +13,6 @@ namespace BookManager.Core.Entities
 
         public string Name { get; private set; }
         public String Email { get; private set; }
+        public List<Loan> Loans { get; set; } = [];
     }
 }
