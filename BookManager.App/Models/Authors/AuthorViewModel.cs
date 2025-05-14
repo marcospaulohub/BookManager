@@ -1,10 +1,11 @@
-﻿using BookManager.Core.Entities;
+﻿using BookManager.App.Models.Books;
+using BookManager.Core.Entities;
 
 namespace BookManager.App.Models.Authors
 {
     public class AuthorViewModel
     {
-        public AuthorViewModel(int id, string name, string? nationality, DateTime? birthDate, DateTime? deathDate, string? biography, string? officialWebsite)
+        public AuthorViewModel(int id, string name, string? nationality, DateTime? birthDate, DateTime? deathDate, string? biography, string? officialWebsite, List<BookViewModel> books)
         {
             Id = id;
             Name = name;
@@ -13,6 +14,7 @@ namespace BookManager.App.Models.Authors
             DeathDate = deathDate;
             Biography = biography;
             OfficialWebsite = officialWebsite;
+            Books = books;
         }
 
         public int Id { get; set; }
@@ -23,6 +25,7 @@ namespace BookManager.App.Models.Authors
         public string? Biography { get; set; }
         public string? OfficialWebsite { get; set; }
         public string BooksIds { get; set; }
+        public List<BookViewModel> Books { get; set; } = [];
 
         public static AuthorViewModel? FromEntity(Author entity)
             => new(entity.Id,
@@ -31,7 +34,9 @@ namespace BookManager.App.Models.Authors
                    entity.BirthDate,
                    entity.DeathDate,
                    entity.Biography,
-                   entity.OfficialWebsite);
+                   entity.OfficialWebsite,
+                   entity.Books.Select(ba => BookViewModel.FromEntity(ba.Book)).ToList()
+                   );
 
         private static string GetListBooks(Author author)
         {

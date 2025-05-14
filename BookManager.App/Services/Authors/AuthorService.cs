@@ -44,6 +44,15 @@ namespace BookManager.App.Services.Authors
                 ResultViewModel<AuthorViewModel?>.Success(AuthorViewModel.FromEntity(author));
         }
 
-    
+        public ResultViewModel<List<AuthorViewModel>> GetAll()
+        {
+            var listAuthors =
+                _authorRepository.GetAll();
+
+            var list = listAuthors.Select(
+                AuthorViewModel.FromEntity).ToList();
+
+            return ResultViewModel<List<AuthorViewModel>>.Success(list);
+        }
     }
 }

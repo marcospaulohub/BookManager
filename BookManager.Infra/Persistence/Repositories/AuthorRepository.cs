@@ -43,7 +43,8 @@ namespace BookManager.Infra.Persistence.Repositories
         {
             var listAuthors = _context
                 .Authors
-                .Include(b => b.Books)
+                .Include(b => b.Books) // a.Books é List<BookAuthor>
+                    .ThenInclude(ba => ba.Book) // aqui traz os dados da entidade Book
                 .Where(a  => a.DeletedAt == null)
                 .ToList();
 
