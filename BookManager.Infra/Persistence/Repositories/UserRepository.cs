@@ -1,5 +1,6 @@
 ﻿using BookManager.Core.Entities;
 using BookManager.Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookManager.Infra.Persistence.Repositories
 {
@@ -36,6 +37,7 @@ namespace BookManager.Infra.Persistence.Repositories
         {
             var user = _context
                 .Users
+                .Include(l => l.Loans)
                 .SingleOrDefault(u => u.Id == id && u.DeletedAt == null);
 
             return user;
