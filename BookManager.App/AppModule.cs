@@ -1,5 +1,7 @@
 ﻿using BookManager.App.Services.Authors;
 using BookManager.App.Services.Books;
+using BookManager.App.Services.Loans;
+using BookManager.App.Services.Users;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BookManager.App
@@ -18,6 +20,8 @@ namespace BookManager.App
         {
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ILoanService, LoanService>();
 
             return services;
         }

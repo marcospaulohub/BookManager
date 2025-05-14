@@ -11,8 +11,4 @@
     <ProjectReference Include="..\BookManager.Infra\BookManager.Infra.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Loans\" />
-  </ItemGroup>
-
 </Project>

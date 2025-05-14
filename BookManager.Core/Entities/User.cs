@@ -12,7 +12,7 @@ namespace BookManager.Core.Entities
         }
 
         public string Name { get; private set; }
-        public String Email { get; private set; }
+        public string Email { get; private set; }
         public List<Loan> Loans { get; set; } = [];
     }
 }
