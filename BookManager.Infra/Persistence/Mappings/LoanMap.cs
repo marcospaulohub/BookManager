@@ -33,13 +33,13 @@ namespace BookManager.Infra.Persistence.Mappings
             builder
                 .HasOne(l => l.User)
                 .WithMany(u => u.Loans)
-                .HasForeignKey(l => l.User.Id)
+                .HasForeignKey(l => l.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasOne(l => l.Book)
                 .WithMany(b => b.Loans)
-                .HasForeignKey(l => l.User.Id)
+                .HasForeignKey(l => l.BookId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
