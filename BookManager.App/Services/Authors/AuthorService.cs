@@ -2,11 +2,6 @@
 using BookManager.App.Models.Authors;
 using BookManager.Core.Entities;
 using BookManager.Core.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookManager.App.Services.Authors
 {
