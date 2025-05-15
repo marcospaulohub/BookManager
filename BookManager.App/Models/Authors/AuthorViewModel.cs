@@ -5,7 +5,7 @@ namespace BookManager.App.Models.Authors
 {
     public class AuthorViewModel
     {
-        public AuthorViewModel(int id, string name, string? nationality, DateTime? birthDate, DateTime? deathDate, string? biography, string? officialWebsite, List<BookViewModel> books)
+        public AuthorViewModel(int id, string name, string? nationality, DateTime? birthDate, DateTime? deathDate, string? biography, string? officialWebsite, List<BookSummaryViewModel> books)
         {
             Id = id;
             Name = name;
@@ -24,8 +24,7 @@ namespace BookManager.App.Models.Authors
         public DateTime? DeathDate { get; set; }
         public string? Biography { get; set; }
         public string? OfficialWebsite { get; set; }
-        public string BooksIds { get; set; }
-        public List<BookViewModel> Books { get; set; } = [];
+        public List<BookSummaryViewModel> Books { get; set; } = [];
 
         public static AuthorViewModel? FromEntity(Author entity)
             => new(entity.Id,
@@ -35,19 +34,8 @@ namespace BookManager.App.Models.Authors
                    entity.DeathDate,
                    entity.Biography,
                    entity.OfficialWebsite,
-                   entity.Books.Select(ba => BookViewModel.FromEntity(ba.Book)).ToList()
+                   entity.Books.Select(ba => BookSummaryViewModel.FromEntity(ba.Book)).ToList()
                    );
 
-        private static string GetListBooks(Author author)
-        {
-            var bookIds = "";
-
-            foreach (var book in author.Books)
-            {
-                bookIds += $"{book.Id.ToString()}";
-            }
-
-            return bookIds;
-        }
     }
 }
