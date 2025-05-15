@@ -7,5 +7,6 @@ namespace BookManager.App.Services.Users
     {
         ResultViewModel<int> Insert(CreateUserInputModel model);
         ResultViewModel<UserViewModel?> GetById(int id);
+        ResultViewModel<List<UserViewModel>> GetAll();
     }
 }

@@ -34,5 +34,17 @@ namespace BookManager.App.Services.Users
                 ResultViewModel<UserViewModel?>.Error("Usuário não encontrado!") :
                 ResultViewModel<UserViewModel?>.Success(UserViewModel.FromEntity(user));
         }
+
+        public ResultViewModel<List<UserViewModel>> GetAll()
+        {
+            var listBooks =
+                _userRepository.GetAll();
+
+            var list = listBooks.Select(
+                UserViewModel.FromEntity).ToList();
+
+            return ResultViewModel<List<UserViewModel>>.Success(list);
+        }
+
     }
 }

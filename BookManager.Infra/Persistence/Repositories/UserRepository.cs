@@ -47,6 +47,7 @@ namespace BookManager.Infra.Persistence.Repositories
         {
             var listUser = _context
                 .Users
+                .Include(l => l.Loans)
                 .Where(u => u.DeletedAt ==  null)
                 .ToList();
 
