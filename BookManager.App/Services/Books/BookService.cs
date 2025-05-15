@@ -56,5 +56,15 @@ namespace BookManager.App.Services.Books
                 ResultViewModel<BookViewModel?>.Error("Livro não encontrado!") :
                 ResultViewModel<BookViewModel?>.Success(BookViewModel.FromEntity(book));
         }
+
+        public ResultViewModel<List<BookViewModel>> GetAll()
+        {
+            var listBooks = _bookRepository.GetAll();
+
+            var list = listBooks.Select(
+                BookViewModel.FromEntity).ToList();
+
+            return ResultViewModel<List<BookViewModel>>.Success(list);
+        }
     }
 }

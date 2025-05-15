@@ -7,5 +7,6 @@ namespace BookManager.App.Services.Books
     {
         ResultViewModel<int> Insert(CreateBookInputModel model);
         ResultViewModel<BookViewModel?> GetById(int id);
+        ResultViewModel<List<BookViewModel>> GetAll();
     }
 }

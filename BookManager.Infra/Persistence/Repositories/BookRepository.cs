@@ -44,6 +44,8 @@ namespace BookManager.Infra.Persistence.Repositories
         {
             var listBooks = _context
                 .Books
+                .Include(a => a.Authors)
+                    .ThenInclude(ba => ba.Author)
                 .Where(b => b.DeletedAt == null)
                 .ToList();
 
