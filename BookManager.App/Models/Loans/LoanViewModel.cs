@@ -22,6 +22,27 @@ namespace BookManager.App.Models.Loans
         public string BookTitle { get; set; }
         public DateTime LoanDate { get; set; }
         public DateTime ReturnDate { get; set; }
+        public int DaysUntilReturn
+        {
+            get
+            {
+                return (ReturnDate - DateTime.Today).Days;
+            }
+        }
+        public string ReturnStatus
+        {
+            get
+            {
+                int days = DaysUntilReturn;
+
+                if (days < 0)
+                    return $"Atrasado há {Math.Abs(days)} dia(s)";
+                else if (days == 0)
+                    return "Vence hoje";
+                else
+                    return $"Faltam {days} dia(s)";
+            }
+        }
 
         public static LoanViewModel? FromEntity(Loan entity)
             => new(entity.Id,
