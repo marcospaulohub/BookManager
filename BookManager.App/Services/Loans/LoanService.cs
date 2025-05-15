@@ -34,5 +34,15 @@ namespace BookManager.App.Services.Loans
                 ResultViewModel<LoanViewModel?>.Error("Empréstimo não encontrado!") :
                 ResultViewModel<LoanViewModel?>.Success(LoanViewModel.FromEntity(loan));
         }
+
+        public ResultViewModel<List<LoanViewModel>> GetAll()
+        {
+            var listLoan = _loanRepository.GetAll();
+
+            var list = listLoan.Select(
+                LoanViewModel.FromEntity).ToList();
+
+            return ResultViewModel<List<LoanViewModel>>.Success(list);
+        }
     }
 }

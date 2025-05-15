@@ -7,5 +7,6 @@ namespace BookManager.App.Services.Loans
     {
         ResultViewModel<int> Insert(CreateLoanInputModel model);
         ResultViewModel<LoanViewModel?> GetById(int id);
+        ResultViewModel<List<LoanViewModel>> GetAll();
     }
 }

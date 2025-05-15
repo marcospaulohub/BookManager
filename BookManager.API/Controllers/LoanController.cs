@@ -34,5 +34,16 @@ namespace BookManager.API.Controllers
             }
             return Ok(result);
         }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _loanService.GetAll();
+            if(!result.IsSuccess)
+            {
+                return NotFound(result.Message);
+            }
+            return Ok(result);
+        }
     }
 }
