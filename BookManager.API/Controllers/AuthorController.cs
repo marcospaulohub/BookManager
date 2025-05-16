@@ -48,5 +48,18 @@ namespace BookManager.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, UpdateAuthorInputModel model)
+        {
+            var result = _authorService.Update(id, model);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound(result.Message);
+            }
+
+            return Ok(result);
+        }
     }
 }

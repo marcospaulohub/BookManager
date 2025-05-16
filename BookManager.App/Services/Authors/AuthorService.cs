@@ -49,5 +49,29 @@ namespace BookManager.App.Services.Authors
 
             return ResultViewModel<List<AuthorViewModel>>.Success(list);
         }
+
+        public ResultViewModel Update(int id, UpdateAuthorInputModel model)
+        {
+            var author = _authorRepository.GetById(id);
+
+            if (author is null)
+                return ResultViewModel.Error("Not Found");
+
+            if (model.Name is not null) author.Name = model.Name;
+            if (model.Nationality is not null) author.Nationality = model.Nationality;
+            if (model.Biography is not null) author.Biography = model.Biography;
+            if (model.OfficialWebsite is not null) author.OfficialWebsite = model.OfficialWebsite;
+            if (model.BirthDate is not null) author.BirthDate = model.BirthDate;
+            if (model.DeathDate is not null) author.DeathDate = model.DeathDate;
+
+
+            if (model.Nationality == string.Empty) author.Nationality = null;
+            if (model.Biography == string.Empty) author.Biography = null;
+            if (model.OfficialWebsite == string.Empty) author.OfficialWebsite = null;
+
+            _authorRepository.Update(author);
+
+            return ResultViewModel.Success();
+        }
     }
 }

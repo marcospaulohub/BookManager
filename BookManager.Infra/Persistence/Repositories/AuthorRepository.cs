@@ -22,6 +22,7 @@ namespace BookManager.Infra.Persistence.Repositories
         }
         public void Update(Author author)
         {
+            author.UpdatedAt = DateTime.Now;
             _context.Authors.Update(author);
             _context.SaveChanges();
         }
