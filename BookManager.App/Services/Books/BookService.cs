@@ -66,5 +66,22 @@ namespace BookManager.App.Services.Books
 
             return ResultViewModel<List<BookViewModel>>.Success(list);
         }
+
+        public ResultViewModel Update(int id, UpdateBookInputModel model)
+        {
+            var book = _bookRepository.GetById(id);
+
+            if (book is null)
+                return ResultViewModel.Error("Not Found");
+
+            if(model.Title is not null) book.Title = model.Title;
+            if(model.ISBN is not null) book.ISBN = model.ISBN;
+
+            if (model.ISBN == string.Empty) book.ISBN = null;
+
+            _bookRepository.Update(book);
+
+            return ResultViewModel.Success();
+        }
     }
 }
