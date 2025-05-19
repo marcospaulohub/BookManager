@@ -73,5 +73,17 @@ namespace BookManager.App.Services.Authors
 
             return ResultViewModel.Success();
         }
+
+        public ResultViewModel Delete(int id)
+        {
+            var author = _authorRepository.GetById(id);
+
+            if (author is null)
+                return ResultViewModel.Error("Not Found");
+
+            _authorRepository.Delete(author);
+
+            return ResultViewModel.Success();
+        }
     }
 }

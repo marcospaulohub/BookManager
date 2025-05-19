@@ -9,5 +9,6 @@ namespace BookManager.App.Services.Authors
         ResultViewModel<AuthorViewModel?> GetById(int id);
         ResultViewModel<List<AuthorViewModel>> GetAll();
         ResultViewModel Update(int id, UpdateAuthorInputModel model);
+        ResultViewModel Delete(int id);
     }
 }
