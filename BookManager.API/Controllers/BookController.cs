@@ -60,5 +60,18 @@ namespace BookManager.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var result = _bookService.Delete(id);
+
+            if (!result.IsSuccess)
+            {
+                return NotFound(result.Message);
+            }
+
+            return Ok(result);
+        }
     }
 }

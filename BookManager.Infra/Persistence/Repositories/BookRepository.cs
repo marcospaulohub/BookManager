@@ -23,12 +23,15 @@ namespace BookManager.Infra.Persistence.Repositories
         public void Update(Book book)
         {
             book.UpdatedAt = DateTime.Now;
+
             _context.Books.Update(book);
             _context.SaveChanges();
         }
 
         public void Delete(Book book)
         {
+            book.DeletedAt = DateTime.Now;
+
             _context.Books.Update(book);
             _context.SaveChanges();
         }
@@ -37,6 +40,7 @@ namespace BookManager.Infra.Persistence.Repositories
             var book = _context
                 .Books
                 .Include(a => a.Authors)
+                    .ThenInclude(ba => ba.Author)
                 .SingleOrDefault(b => b.Id == id && b.DeletedAt == null);
 
             return book;
@@ -58,6 +62,7 @@ namespace BookManager.Infra.Persistence.Repositories
             var book = _context
                 .Books
                 .Include(a => a.Authors)
+                    .ThenInclude(ba => ba.Author)
                 .SingleOrDefault(b => b.ISBN == isbn && b.DeletedAt == null);
 
             return book;
@@ -68,6 +73,7 @@ namespace BookManager.Infra.Persistence.Repositories
             var book = _context
                 .Books
                 .Include(a => a.Authors)
+                    .ThenInclude(ba => ba.Author)
                 .SingleOrDefault(b => b.Title == title && b.DeletedAt == null);
 
             return book;

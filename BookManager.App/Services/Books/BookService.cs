@@ -83,5 +83,17 @@ namespace BookManager.App.Services.Books
 
             return ResultViewModel.Success();
         }
+
+        public ResultViewModel Delete(int id)
+        {
+            var book = _bookRepository.GetById(id);
+
+            if (book is null)
+                return ResultViewModel.Error("Not Found");
+
+            _bookRepository.Delete(book);
+
+            return ResultViewModel.Success();
+        }
     }
 }
