@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.API", "BookMana
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.Core", "BookManager.Core\BookManager.Core.csproj", "{139DC58C-291E-4602-BD60-2B87C18DA52D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager.Cmd", "BookManager.Cmd\BookManager.Cmd.csproj", "{9A845E66-F3D2-4076-9038-646775B9EF06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.Cmd", "BookManager.Cmd\BookManager.Cmd.csproj", "{9A845E66-F3D2-4076-9038-646775B9EF06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager.Infra", "BookManager.Infra\BookManager.Infra.csproj", "{A5ED5DCF-608A-48E0-9CDC-0B8019B86EBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.Infra", "BookManager.Infra\BookManager.Infra.csproj", "{A5ED5DCF-608A-48E0-9CDC-0B8019B86EBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager.App", "BookManager.App\BookManager.App.csproj", "{57D985E8-8C32-47DA-ACE1-43F746896D68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookManager.App", "BookManager.App\BookManager.App.csproj", "{57D985E8-8C32-47DA-ACE1-43F746896D68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookManager.Test", "BookManager.Test\BookManager.Test.csproj", "{EB45ECAB-8FDB-4752-B23F-2E02258A52B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{57D985E8-8C32-47DA-ACE1-43F746896D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57D985E8-8C32-47DA-ACE1-43F746896D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57D985E8-8C32-47DA-ACE1-43F746896D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB45ECAB-8FDB-4752-B23F-2E02258A52B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB45ECAB-8FDB-4752-B23F-2E02258A52B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB45ECAB-8FDB-4752-B23F-2E02258A52B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB45ECAB-8FDB-4752-B23F-2E02258A52B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
