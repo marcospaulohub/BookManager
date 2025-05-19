@@ -28,6 +28,7 @@ namespace BookManager.Infra.Persistence.Repositories
         }
         public void Delete(Author author)
         {
+            author.DeletedAt = DateTime.Now;
             _context.Authors.Update(author);
             _context.SaveChanges();
         }
@@ -35,7 +36,8 @@ namespace BookManager.Infra.Persistence.Repositories
         {
             var author = _context
                 .Authors
-                .Include(b => b.Books)
+                .Include(b => b.Books) // a.Books é List<BookAuthor>
+                    .ThenInclude(ba => ba.Book) // aqui traz os dados da entidade Book
                 .SingleOrDefault(a => a.Id == id && a.DeletedAt == null);
 
             return author;
@@ -55,7 +57,8 @@ namespace BookManager.Infra.Persistence.Repositories
         {
             var author = _context
                 .Authors
-                .Include(b => b.Books)
+                .Include(b => b.Books) // a.Books é List<BookAuthor>
+                    .ThenInclude(ba => ba.Book) // aqui traz os dados da entidade Book
                 .FirstOrDefault(a => a.Name == name && a.DeletedAt == null);
 
             return author;
