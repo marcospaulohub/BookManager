@@ -1,6 +1,8 @@
 
 using BookManager.App;
+using BookManager.Core.Validators;
 using BookManager.Infra;
+using FluentValidation;
 
 namespace BookManager.API
 {
@@ -19,6 +21,8 @@ namespace BookManager.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddValidatorsFromAssemblyContaining<AuthorValidator>();
 
             var app = builder.Build();
 
