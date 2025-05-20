@@ -2,6 +2,9 @@
 using BookManager.App.Services.Books;
 using BookManager.App.Services.Loans;
 using BookManager.App.Services.Users;
+using BookManager.App.Validators.Authors;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BookManager.App
@@ -11,7 +14,8 @@ namespace BookManager.App
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services
-                .AddServices();
+                .AddServices()
+                .AddValidation();
 
             return services;
         }
@@ -22,6 +26,14 @@ namespace BookManager.App
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ILoanService, LoanService>();
+
+            return services;
+        }
+        private static IServiceCollection AddValidation(this IServiceCollection services)
+        {
+            services
+                .AddFluentValidationAutoValidation()
+                .AddValidatorsFromAssemblyContaining<CreateAuthorInputModelValidator>();
 
             return services;
         }
