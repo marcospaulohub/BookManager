@@ -1,9 +1,6 @@
 
 using BookManager.App;
-using BookManager.App.Validators.Authors;
-using BookManager.Core.Validators;
 using BookManager.Infra;
-using FluentValidation;
 
 namespace BookManager.API
 {
