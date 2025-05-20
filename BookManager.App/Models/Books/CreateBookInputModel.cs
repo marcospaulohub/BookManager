@@ -2,6 +2,8 @@
 {
     public class CreateBookInputModel
     {
+        public CreateBookInputModel() { }
+
         public CreateBookInputModel(string title, string? iSBN, DateTime publicationDate, string authorsIds)
         {
             Title = title;
@@ -9,10 +11,9 @@
             PublicationDate = publicationDate;
             AuthorsIds = authorsIds;
         }
-
-        public string Title { get; set; }
+        public string? Title { get; set; }
         public string? ISBN { get; set; }
         public DateTime PublicationDate { get; set; }
-        public string AuthorsIds { get; set; }
+        public string? AuthorsIds { get; set; }
     }
 }

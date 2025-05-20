@@ -1,11 +1,11 @@
-﻿using BookManager.Core.Validators;
+﻿using BookManager.App.Validators.Books;
 using BookManager.Test.Fakes;
 
 namespace BookManager.Test.Core
 {
     public class BookTest
     {
-        private readonly BookValidator _validator = new();
+        private readonly CreateBookInputModelValidator _validator = new();
 
         [Fact]
         public void Book_Should_Have_Valid_Title()

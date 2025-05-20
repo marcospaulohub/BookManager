@@ -1,4 +1,4 @@
-﻿using BookManager.Core.Validators;
+﻿using BookManager.App.Validators.Authors;
 using BookManager.Test.Fakes;
 using FluentValidation.TestHelper;
 
@@ -6,7 +6,7 @@ namespace BookManager.Test.Core
 {
     public class AuthorTests
     {
-        private readonly AuthorValidator _validator = new();
+        private readonly CreateAuthorInputModelValidator _validator = new();
 
         [Fact]
         public void Author_Should_Have_Valid_Name()

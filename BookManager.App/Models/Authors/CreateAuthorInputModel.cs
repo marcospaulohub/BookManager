@@ -2,6 +2,8 @@
 {
     public class CreateAuthorInputModel
     {
+        public CreateAuthorInputModel() { }
+        
         public CreateAuthorInputModel(string name, string? nationality, DateTime? birthDate, DateTime? deathDate, string? biography, string? officialWebsite)
         {
             Name = name;
@@ -12,7 +14,7 @@
             OfficialWebsite = officialWebsite;
         }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public string? Nationality { get; set; }
         public DateTime? BirthDate { get; set; }
         public DateTime? DeathDate { get; set; }
