@@ -22,13 +22,15 @@ namespace BookManager.Infra.Persistence.Repositories
         }
         public void Update(Author author)
         {
-            author.UpdatedAt = DateTime.Now;
+            author.SetAsUpdated();
+
             _context.Authors.Update(author);
             _context.SaveChanges();
         }
         public void Delete(Author author)
         {
-            author.DeletedAt = DateTime.Now;
+            author.SetAsDeleted();
+
             _context.Authors.Update(author);
             _context.SaveChanges();
         }

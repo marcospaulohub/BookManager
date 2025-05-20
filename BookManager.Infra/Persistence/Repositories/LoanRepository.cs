@@ -23,12 +23,16 @@ namespace BookManager.Infra.Persistence.Repositories
 
         public void Update(Loan loan)
         {
+            loan.SetAsUpdated();
+
             _context.Loans.Update(loan);
             _context.SaveChanges();
         }
 
         public void Delete(Loan loan)
         {
+            loan.SetAsDeleted();
+
             _context.Loans.Update(loan);
             _context.SaveChanges();
         }

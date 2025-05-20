@@ -13,23 +13,27 @@ namespace BookManager.Infra.Persistence.Repositories
             _context = context;
         }
 
-        public int Insert(User item)
+        public int Insert(User user)
         {
-            _context.Users.Add(item);
+            _context.Users.Add(user);
             _context.SaveChanges();
 
-            return item.Id;
+            return user.Id;
         }
 
-        public void Update(User item)
+        public void Update(User user)
         {
-            _context.Users.Update(item);
+            user.SetAsUpdated();
+
+            _context.Users.Update(user);
             _context.SaveChanges();
         }
 
-        public void Delete(User item)
+        public void Delete(User user)
         {
-            _context.Users.Update(item);
+            user.SetAsDeleted();
+
+            _context.Users.Update(user);
             _context.SaveChanges();
         }
 

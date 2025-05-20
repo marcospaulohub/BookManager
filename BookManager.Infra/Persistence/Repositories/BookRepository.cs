@@ -22,7 +22,7 @@ namespace BookManager.Infra.Persistence.Repositories
         }
         public void Update(Book book)
         {
-            book.UpdatedAt = DateTime.Now;
+            book.SetAsUpdated();
 
             _context.Books.Update(book);
             _context.SaveChanges();
@@ -30,7 +30,7 @@ namespace BookManager.Infra.Persistence.Repositories
 
         public void Delete(Book book)
         {
-            book.DeletedAt = DateTime.Now;
+            book.SetAsDeleted();
 
             _context.Books.Update(book);
             _context.SaveChanges();
