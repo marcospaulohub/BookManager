@@ -2,7 +2,7 @@
 
 namespace BookManager.Core.Repositories
 {
-    public interface IRepository<T>
+    public interface _IRepository<T>
     {
         int Insert(T item);
         void Update(T item);
