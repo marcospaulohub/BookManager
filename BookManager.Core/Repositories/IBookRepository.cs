@@ -2,7 +2,7 @@
 
 namespace BookManager.Core.Repositories
 {
-    public interface IBookRepository : IRepository<Book>
+    public interface IBookRepository : _IRepository<Book>
     {
         Book? GetByTitle(string title);
         Book? GetByIsbn(string isbn);

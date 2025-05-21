@@ -2,7 +2,7 @@
 
 namespace BookManager.Core.Repositories
 {
-    public interface ILoanRepository : IRepository<Loan>
+    public interface ILoanRepository : _IRepository<Loan>
     {
 
     }
