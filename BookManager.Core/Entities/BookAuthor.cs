@@ -2,7 +2,7 @@
 {
     public class BookAuthor : BaseEntity
     {
-        public BookAuthor() { }
+        public BookAuthor() : base() { }
         public BookAuthor(Book book, Author author) : base()
         {
             Book = book;

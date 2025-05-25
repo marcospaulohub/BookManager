@@ -4,7 +4,7 @@ namespace BookManager.Core.Entities
 {
     public class Loan : BaseEntity
     {
-        public Loan(int userId, int bookId)
+        public Loan(int userId, int bookId) : base()
         {
             UserId = userId;
             BookId = bookId;

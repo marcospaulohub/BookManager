@@ -5,6 +5,8 @@ namespace BookManager.Core.Entities
 {
     public class User : BaseEntity
     {
+        public User() : base() { }
+
         public User(string name, string email) : base()
         {
             Name = name;

@@ -5,7 +5,7 @@ namespace BookManager.Core.Entities
 {
     public class Author : BaseEntity
     {
-        public Author() { }
+        public Author() : base() { } 
         public Author(string name) : base()
         {
             Name = name;

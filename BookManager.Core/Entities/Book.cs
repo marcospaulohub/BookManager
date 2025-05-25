@@ -6,7 +6,7 @@ namespace BookManager.Core.Entities
 {
     public class Book : BaseEntity
     {
-        public Book() { }
+        public Book() : base() { }
         public Book(string title, List<Author> authors) : base()
         {
             Title = title;
