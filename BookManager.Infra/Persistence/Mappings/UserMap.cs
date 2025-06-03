@@ -12,16 +12,19 @@ namespace BookManager.Infra.Persistence.Mappings
                 .ToTable("User");
 
             builder
-                .HasKey(b => b.Id);
+                .HasKey(u => u.Id);
 
             builder
-                .Property(b => b.Name)
+                .Property(u => u.Name)
                 .HasColumnType("varchar(200)")
                 .IsRequired();
 
             builder
-                .Property(b => b.Email)
-                .HasColumnType("varchar(200)");
+                .OwnsOne(u => u.Email)
+                .Property(u => u.Address)
+                .HasColumnName("Email")
+                .HasColumnType("varchar(200)")
+                .IsRequired(true);
         }
     }
 }
