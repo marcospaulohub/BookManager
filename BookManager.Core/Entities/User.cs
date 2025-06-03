@@ -1,4 +1,4 @@
-﻿using System;
+﻿using BookManager.Core.ValueObject;
 using System.Collections.Generic;
 
 namespace BookManager.Core.Entities
@@ -7,14 +7,14 @@ namespace BookManager.Core.Entities
     {
         public User() : base() { }
 
-        public User(string name, string email) : base()
+        public User(string name, Email email) : base()
         {
             Name = name;
             Email = email;
         }
 
         public string Name { get; private set; }
-        public string Email { get; private set; }
+        public Email Email { get; private set; }
         public List<Loan> Loans { get; set; } = [];
     }
 }
