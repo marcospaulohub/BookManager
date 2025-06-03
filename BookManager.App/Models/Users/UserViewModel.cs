@@ -20,7 +20,7 @@ namespace BookManager.App.Models.Users
         public static UserViewModel? FromEntity(User entity)
             => new(entity.Id,
                 entity.Name,
-                entity.Email,
+                entity.Email.Address,
                 entity.Loans.Count);
     }
 }

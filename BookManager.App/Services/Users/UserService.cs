@@ -2,6 +2,7 @@
 using BookManager.App.Models.Users;
 using BookManager.Core.Entities;
 using BookManager.Core.Repositories;
+using BookManager.Core.ValueObject;
 
 namespace BookManager.App.Services.Users
 {
@@ -18,7 +19,7 @@ namespace BookManager.App.Services.Users
         {
             var user = new User(
                 model.Name,
-                model.Email
+                new Email(model.Email)
                 );
 
             var userId = _userRepository.Insert(user);
