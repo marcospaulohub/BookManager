@@ -11,8 +11,8 @@ namespace BookManager.Infra.Persistence
             : base(options) { }
 
         public DbSet<Book> Books { get; set; }
-        public DbSet<BookAuthor> BookAuthors { get; set; }
         public DbSet<Author> Authors { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Loan> Loans { get; set; }
 
@@ -21,6 +21,8 @@ namespace BookManager.Infra.Persistence
             builder.ApplyConfiguration(new BookMap());
             builder.ApplyConfiguration(new BookAuthorMap());
             builder.ApplyConfiguration(new AuthorMap());
+            builder.ApplyConfiguration(new BookCategoryMap());
+            builder.ApplyConfiguration(new CategoryMap());
             builder.ApplyConfiguration(new UserMap());
             builder.ApplyConfiguration(new LoanMap());
 
