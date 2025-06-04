@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BookManager.Core.ValueObject
+namespace BookManager.Core.ValueObjects
 {
     public abstract class ValueObject
     {

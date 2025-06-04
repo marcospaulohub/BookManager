@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace BookManager.Core.ValueObject
+namespace BookManager.Core.ValueObjects
 {
     public class Email : ValueObject
     {

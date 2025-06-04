@@ -12,7 +12,7 @@ namespace BookManager.Core.Entities
             ReturnDate = GetValidDateForReturn();
         }
 
-        private const int loanPeriod = 14;
+        private const int LOAN_PERIOD = 14;
 
         public int UserId { get; private set; }
         public User User { get; set; }
@@ -23,7 +23,7 @@ namespace BookManager.Core.Entities
 
         private DateTime GetValidDateForReturn()
         {
-            var dateForReturn = DateTime.Today.AddDays(loanPeriod);
+            var dateForReturn = DateTime.Today.AddDays(LOAN_PERIOD);
 
             if (dateForReturn.DayOfWeek == DayOfWeek.Saturday) dateForReturn = dateForReturn.AddDays(2);
 
