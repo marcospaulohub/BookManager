@@ -2,7 +2,7 @@
 using BookManager.App.Models.Users;
 using BookManager.Core.Entities;
 using BookManager.Core.Repositories;
-using BookManager.Core.ValueObject;
+using BookManager.Core.ValueObjects;
 
 namespace BookManager.App.Services.Users
 {
