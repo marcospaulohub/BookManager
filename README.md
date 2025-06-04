@@ -7,29 +7,29 @@
 ### 🔸 Entidades Principais
 
 #### **Autor** / **Author**
-- Campos: `Id`, `Nome`, `DataNascimento`, etc.
+- Campos: `Id`, `Name`, `Nationality`,`BirthDate`,`DeathDate`,`Biography`, `OfficialWebsite`, `Books`.
 - Regras:
   - Um autor pode estar vinculado a vários livros.
 
 #### **Livro** / **Book**
-- Campos: `Id`, `Título`, `ISBN`, `DataPublicacao`, etc.
+- Campos: `Id`, `Title`, `ISBN`, `PublicationDate`,`Authors`.
 - Regras:
   - Um livro pode ter um ou mais autores.
   - Um livro pode ser emprestado a apenas um usuário por vez.
   - Um livro só pode ser emprestado novamente após devolução ou renovação não pendente.
 
 #### **Usuário** / **User**
-- Campos: `Id`, `Nome`, `Email`, etc.
+- Campos: `Id`, `Name`, `Email`,`Loans`.
 - Regras:
   - Usuários devem estar cadastrados para realizar empréstimos.
   - Um usuário pode ter vários livros emprestados simultaneamente, desde que estejam dentro do prazo.
 
 #### **Empréstimo** / **Loan**
-- Campos: `Id`, `LivroId`, `UsuarioId`, `DataEmprestimo`, `DataDevolucao`.
+- Campos: `Id`, `UserId`, `BookId`, `Book`, `LoanDate`,`ReturnDate`.
 - Regras:
   - Cada empréstimo tem duração padrão de **14 dias**.
   - Se a data de devolução cair em um fim de semana, ela será automaticamente ajustada para o próximo dia útil.
-  - Pode ser **renovado** antes do vencimento.
+  - Pode ser **renovado** antes do vencimento com no mínimo **7 dias** após a data do empréstimo.
   - Não é possível emprestar um livro que já está emprestado.
   - Usuários com empréstimos vencidos não podem realizar novos empréstimos.
 
@@ -54,7 +54,7 @@
 - Após esse período, o livro deve ser devolvido ou o empréstimo deve ser renovado.
 
 ### 🔁 Renovação
-- Permitida se solicitada **antes da data de vencimento**.
+- Permitida se solicitada **antes da data de vencimento** com no mínimo **7 dias** após a data do empréstimo.
 - O prazo é estendido por mais **14 dias**.
 - Pode haver limite de renovações (definido conforme a política do sistema).
 
@@ -68,7 +68,7 @@
 ## 📎 Exemplo de Fluxo
 
 1. Um usuário cadastrado solicita um livro disponível.
-2. O sistema registra o empréstimo com data prevista de devolução (14 dias).
+2. O sistema registra o empréstimo com data prevista de devolução (**14 dias**).
 3. Antes do vencimento, o usuário pode renovar o empréstimo.
 4. Ao devolver o livro, o sistema atualiza o status e libera o livro para novo empréstimo.
 
@@ -79,7 +79,7 @@ O projeto está dividido nos seguintes módulos:
 
 - **BookManager.API**: Camada de exposição (Web API).
 - **BookManager.App**: Camada de aplicação com regras de negócio.
-- **BookManager.Core**: Contém as entidades, interfaces e contratos de domínio.
+- **BookManager.Core**: Contém as entidades, interfaces, valueObjects e contratos de domínio.
 - **BookManager.Infra**: Implementações de persistência de dados.
 - **BookManager.Test**: Projeto de testes unitários e de integração.
 
@@ -96,11 +96,16 @@ O projeto está dividido nos seguintes módulos:
 
 ## ⚙️ Funcionalidades
 
-- Cadastro de autores e livros
-- Relacionamento entre autores e livros
-- Registro de usuários
-- Empréstimo e devolução de livros
-- Histórico de empréstimos
+|      | Funcionalidades               |
+|------| ----------------------------- |
+|  ✅ | Cadastro de autores            |
+|  ✅ | Cadastro de livros             |
+|  ✅ | Relacionamento entre autores e livros |
+|  ✅ | Registro de usuários           |
+|  ✅ | Empréstimo de livros           |
+|  ❌ | Devolução de livros            |
+|  ❌ | Histórico de empréstimos       |
+
 
 ## 📦 Como Executar o Projeto
 
