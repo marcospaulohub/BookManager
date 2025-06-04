@@ -1,4 +1,4 @@
-﻿using BookManager.Core.ValueObject;
+﻿using BookManager.Core.ValueObjects;
 using System.Collections.Generic;
 
 namespace BookManager.Core.Entities
