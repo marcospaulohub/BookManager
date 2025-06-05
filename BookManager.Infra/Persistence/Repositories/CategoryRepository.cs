@@ -38,8 +38,6 @@ namespace BookManager.Infra.Persistence.Repositories
         {
             var category = _context
                 .Categories
-                .Include(b => b.Books)
-                    .ThenInclude(bc => bc.Capacity)
                 .SingleOrDefault(c => c.Id == id && c.DeletedAt == null);
 
             return category;
@@ -48,8 +46,6 @@ namespace BookManager.Infra.Persistence.Repositories
         {
             var listCategories = _context
                 .Categories
-                .Include(b => b.Books)
-                    .ThenInclude(bc => bc.Book)
                 .Where(c => c.DeletedAt == null)
                 .ToList();
 
