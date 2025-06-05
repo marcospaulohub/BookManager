@@ -25,7 +25,7 @@ namespace BookManager.App.Services.Books
         {
             var numberString = model.AuthorsIds;
 
-            var numberArray = numberString.Split(' ');
+            var numberArray = numberString.Split(',');
 
             var numberConvertedFromString = Array.ConvertAll(numberArray, Convert.ToInt32);
 
@@ -34,6 +34,10 @@ namespace BookManager.App.Services.Books
             for (int i = 0; i < numberConvertedFromString.Length; i++)
             {
                 var author = _authorRepository.GetById(numberConvertedFromString[i]);
+
+                if (author is null)
+                    return ResultViewModel<int>.Error("Autor não encontrado!");
+
                 authors.Add(author);
             }
 
