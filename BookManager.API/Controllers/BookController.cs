@@ -20,6 +20,11 @@ namespace BookManager.API.Controllers
         {
             var result = _bookService.Insert(model);
 
+            if (!result.IsSuccess)
+            {
+                return NotFound(result.Message);
+            }
+
             return CreatedAtAction(nameof(GetById), new { id = result.Data }, model);
         }
 
