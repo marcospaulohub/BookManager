@@ -25,7 +25,28 @@ namespace BookManager.App.Services.Loans
 
             return ResultViewModel<int>.Success(loanId);
         }
+        public ResultViewModel Update(int id, UpdateLoanInputModel model)
+        {
+            var loan = _loanRepository.GetById(id);
 
+            if (loan is null)
+                return ResultViewModel.Error("Not Found");
+
+            _loanRepository.Update(loan);
+
+            return ResultViewModel.Success();
+        }
+        public ResultViewModel Delete(int id)
+        {
+            var loan = _loanRepository.GetById(id);
+
+            if (loan is null)
+                return ResultViewModel.Error("Not Found");
+
+            _loanRepository.Delete(loan);
+
+            return ResultViewModel.Success();
+        }
         public ResultViewModel<LoanViewModel?> GetById(int id)
         {
             var loan = _loanRepository.GetById(id);
@@ -34,7 +55,6 @@ namespace BookManager.App.Services.Loans
                 ResultViewModel<LoanViewModel?>.Error("Empréstimo não encontrado!") :
                 ResultViewModel<LoanViewModel?>.Success(LoanViewModel.FromEntity(loan));
         }
-
         public ResultViewModel<List<LoanViewModel>> GetAll()
         {
             var listLoan = _loanRepository.GetAll();
@@ -44,5 +64,7 @@ namespace BookManager.App.Services.Loans
 
             return ResultViewModel<List<LoanViewModel>>.Success(list);
         }
+
+        
     }
 }
