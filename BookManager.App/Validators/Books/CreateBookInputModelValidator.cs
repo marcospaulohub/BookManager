@@ -9,7 +9,7 @@ namespace BookManager.App.Validators.Books
         {
             RuleFor(b => b.Title)
                 .NotEmpty()
-                    .WithMessage("O titulo é obrigatorio.")
+                    .WithMessage("O titulo é obrigatório.")
                 .MinimumLength(3)
                     .WithMessage("O titulo deve ter pelo menos 3 caracteres.")
                 .MaximumLength(200)
@@ -21,6 +21,11 @@ namespace BookManager.App.Validators.Books
                 .MaximumLength(20)
                     .WithMessage("O titulo deve ter no máximo 20 caracteres.");
 
+            RuleFor(b => b.AuthorsIds)
+                .NotEmpty()
+                    .WithMessage("O id do autor é obrigatório")
+                .Matches(@"^\d+(,\s*\d+)*$")
+                    .WithMessage("O formato dos IDs dos autores é inválido. Use apenas números separados por vírgulas.");
 
         }
     }
