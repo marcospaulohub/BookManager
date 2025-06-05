@@ -4,7 +4,10 @@ namespace BookManager.Core.Entities
 {
     public class Category : BaseEntity
     {
-        public Category(string name, string? description)
+        public Category() : base() { } 
+            
+        public Category(string name, string? description) 
+            : base()
         {
             Name = name;
             Description = description;
