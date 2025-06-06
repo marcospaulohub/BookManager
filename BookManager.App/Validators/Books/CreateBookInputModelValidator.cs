@@ -27,6 +27,12 @@ namespace BookManager.App.Validators.Books
                 .Matches(@"^\d+(,\s*\d+)*$")
                     .WithMessage("O formato dos IDs dos autores é inválido. Use apenas números separados por vírgulas.");
 
+            RuleFor(b => b.CategoriesIds)
+               .NotEmpty()
+                   .WithMessage("O id da categoria é obrigatório")
+               .Matches(@"^\d+(,\s*\d+)*$")
+                   .WithMessage("O formato dos IDs das categorias é inválida. Use apenas números separados por vírgulas.");
+
         }
     }
 }
