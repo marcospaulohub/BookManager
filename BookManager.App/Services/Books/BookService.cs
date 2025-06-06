@@ -9,43 +9,38 @@ namespace BookManager.App.Services.Books
     {
         private readonly IBookRepository _bookRepository;
         private readonly IAuthorRepository _authorRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
         public BookService(IBookRepository bookRepository)
         {
             _bookRepository = bookRepository;
         }
 
-        public BookService(IBookRepository bookRepository, IAuthorRepository authorRepository)
+        public BookService(IBookRepository bookRepository, IAuthorRepository authorRepository, ICategoryRepository categoryRepository)
         {
             _bookRepository = bookRepository;
             _authorRepository = authorRepository;
+            _categoryRepository = categoryRepository;
         }
-
+        
         public ResultViewModel<int> Insert(CreateBookInputModel model)
         {
-            var numberString = model.AuthorsIds;
+            var authors = GetAuthors(model.AuthorsIds);
 
-            var numberArray = numberString.Split(',');
+            if (authors is null)
+                return ResultViewModel<int>.Error("Autor não encontrado!");
 
-            var numberConvertedFromString = Array.ConvertAll(numberArray, Convert.ToInt32);
+            var categories = GetCategories(model.CategoriesIds);
 
-            List<Author> authors = new();
-
-            for (int i = 0; i < numberConvertedFromString.Length; i++)
-            {
-                var author = _authorRepository.GetById(numberConvertedFromString[i]);
-
-                if (author is null)
-                    return ResultViewModel<int>.Error("Autor não encontrado!");
-
-                authors.Add(author);
-            }
+            if (categories is null)
+                return ResultViewModel<int>.Error("Categoria não encontrada!");
 
             var book = new Book(
                 model.Title,
                 model.ISBN,
                 model.PublicationDate,
-                authors
+                authors,
+                categories
                 );
 
             var bookId = _bookRepository.Insert(book);
@@ -98,6 +93,47 @@ namespace BookManager.App.Services.Books
             _bookRepository.Delete(book);
 
             return ResultViewModel.Success();
+        }
+
+        private List<Author>? GetAuthors(string authorsIds)
+        {
+            var numberArray = authorsIds.Split(',');
+
+            var numberConvertedFromString = Array.ConvertAll(numberArray, Convert.ToInt32);
+
+            List<Author> authors = [];
+
+            for (int i = 0; i < numberConvertedFromString.Length; i++)
+            {
+                var author = _authorRepository.GetById(numberConvertedFromString[i]);
+
+                if (author is null)
+                    return null;
+
+                authors.Add(author);
+            }
+
+            return authors;
+        }
+        private List<Category>? GetCategories(string categoriesIds)
+        {
+            var numberArray = categoriesIds.Split(',');
+
+            var numberConvertedFromString = Array.ConvertAll(numberArray, Convert.ToInt32);
+
+            List<Category> categories = [];
+
+            for (int i = 0; i < numberConvertedFromString.Length; i++)
+            {
+                var category = _categoryRepository.GetById(numberConvertedFromString[i]);
+
+                if (category is null)
+                    return null;
+
+                categories.Add(category);
+            }
+
+            return categories;
         }
     }
 }
