@@ -23,7 +23,7 @@ namespace BookManager.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.Data }, model);
         }
 
-        [HttpGet("PorId/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetById(int id) 
         {
             var result = _authorService.GetById(id);
@@ -36,7 +36,7 @@ namespace BookManager.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
+        [HttpGet("/api/authors")]
         public IActionResult GetAll()
         {
             var result = _authorService.GetAll();
