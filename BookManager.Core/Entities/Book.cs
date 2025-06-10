@@ -25,14 +25,14 @@ namespace BookManager.Core.Entities
                 .ToList();
         }
 
-        public Book(string title, string iSBN, DateTime publicationDate, List<Author> authors, List<Category> categories) : base()
+        public Book(string title, string? iSBN, DateTime publicationDate, List<Author> authors, List<Category> categories) : base()
         {
             Title = title;
             ISBN = iSBN;
             PublicationDate = publicationDate;
             
             Authors = authors
-                .Select(a => new BookAuthor { Author = a })
+                .Select(a => new BookAuthor { Author = a})
                 .ToList();
 
             Categories = categories

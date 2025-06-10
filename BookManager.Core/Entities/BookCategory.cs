@@ -12,7 +12,6 @@
             category.Books.Add(this);
         }
 
-
         public int BookId { get; set; }
         public Book Book { get; set; }
         
