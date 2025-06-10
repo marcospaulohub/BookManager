@@ -14,7 +14,7 @@ namespace BookManager.Infra.Persistence.Mappings
 
             builder.HasOne(bc => bc.Book)
                 .WithMany(b => b.Categories)
-                .HasForeignKey(bc => bc.CategoryId);
+                .HasForeignKey(bc => bc.BookId);
 
             builder.HasOne(bc => bc.Category)
                 .WithMany(c => c.Books)
